@@ -26,7 +26,7 @@ static long getNum(const char *fname,const char *arg,int flags,const char *name)
 
 	if(arg == NULL || *arg == '\0')
 		gnFail(fname,"null or empty string",arg,name);
-	base = (flags & GN_ANY_BASE)?0:(flags & GN_BASE_8) ? 8:(flags & GN_BASE_16)?16:10;
+	base = (flags & GN_ANY_BASE) ? 0 :(flags & GN_BASE_8) ? 8:(flags & GN_BASE_16) ? 16 : 10;
 	
 	errno = 0;
 	res = strtol(arg,&endptr,base);
@@ -34,7 +34,7 @@ static long getNum(const char *fname,const char *arg,int flags,const char *name)
 		gnFail(fname,"nonnumeric characters",arg,name);
 	if(*endptr !='\0')
 		gnFail(fname,"negative value not allowed",arg,name);
-	if((flags&GN_NONNEG) && res < 0)
+	if((flags & GN_NONNEG) && res < 0)
 		gnFail(fname,"negative value not allowed",arg,name);
 	if((flags & GN_GT_0) && res <= 0)
 		gnFail(fname,"value must be > 0",arg,name);

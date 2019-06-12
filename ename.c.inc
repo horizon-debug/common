@@ -1,5 +1,5 @@
 static char *ename[]={
-/* 0 */ "";
+/* 0 */ "",
 /* 1 */ "EPERM","ENOENT","ESRCH","EINTR","EIO","ENXIO","E2BIG",
 /* 8 */ "ENOEXEC","EBADF","ECHILD","EAGIN/EWOULDBLOCK","ENOMEM",
 /* 13 */ "EACCES","EFALUT","ENOTBLK","EBUSY","EEXIST","EXDEV",
@@ -27,3 +27,4 @@ static char *ename[]={
 /* 125 */ "ECANCELED","EREMOTEIO","EDQUOT","ENOMEDIUM","EMEDIUMTYPE",
 /* 129 */ "EKEYREJECTED","EOWNERDEAD","ENOTRECOVERABLE","ERFKILL"
 };
+#define MAX_ENAME 132
