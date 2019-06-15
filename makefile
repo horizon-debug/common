@@ -1,12 +1,12 @@
-CC=gcc
-XX=g++
-TARGET=main
-SOURCES=$(wildcard *.c)
-OBJS=$(patsubst %.c,%.o,$(SOURCES))
-$(TARGET):$(OBJS)
-	$(CC) -o $(TARGET) $(OBJS)
-$(OBJS):$(SOURCES)
-	$(CC) -c $(SOURCES)
+target=copy
+src=$(wildcard ./*.c)
+obj=$(patsubst %.c,%.o,$(src))
 
+$(target):$(obj)
+	gcc $^ -o $@
+%.o:%.c
+	gcc $< -c -o $@
+
+.PHONY:clean
 clean:
-	rm -fr *.o $(TARGET)
+	rm -fr *.o $(target)
